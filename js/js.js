@@ -101,7 +101,8 @@ App = {
             }
         }).done(
             function( result ) {
-                $( '#execute' ).after( '<div>' + result + '</div>' );
+                $( '#result' ).remove();
+                $( '#execute' ).after( '<div id="result">' + result + '</div>' );
             }
         );
 

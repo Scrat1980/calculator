@@ -40,10 +40,13 @@ class Counter
         $result = '';
 
         foreach ( $operationsArray as $index => $operation ) {
-            $result .= '';
             $operationIsValid = $this->validateOperation( $operation );
             $currentPair = $this->numbersArray[$index];
             $numbersPresent = isset( $currentPair );
+//            var_dump($this->numbersArray);
+//            var_dump($index);
+//            die;
+
             if( $operationIsValid && $numbersPresent ) {
                 if( count( $currentPair ) === 2 ) {
                     $resultRow = $this->operation(

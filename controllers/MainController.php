@@ -28,11 +28,11 @@ class MainController
 
     public function ajax()
     {
-        $delimiter = validateInput( $_POST['delimiter'] );
-        $operationsString = validateInput( $_POST['operations'] );
+        $reader = new Reader();
+        $this->numbersArray = $reader->getNumbersArray();
 
-        var_dump('here');
-        die;
+        $delimiter = $this->validateInput( $_POST['delimiter'] );
+        $operationsString = $this->validateInput( $_POST['operations'] );
 
         $model = new Counter( $delimiter, $operationsString, $this->numbersArray );
         $model->count();
