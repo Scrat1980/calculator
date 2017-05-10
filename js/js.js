@@ -88,8 +88,6 @@ App = {
     },
 
     getAnswers: function() {
-        alert('callback!');
-
         var delimiter = $( '#delimiter_id' ).val();
         var operations = $( '#operations_id' ).val();
 

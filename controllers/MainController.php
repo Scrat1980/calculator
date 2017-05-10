@@ -11,17 +11,18 @@ require_once ('models/Counter.php');
 
 class MainController
 {
+    private $numbersArray;
 
     private function validateInput( $input ){
-        return $input;
+        return (String) trim( strip_tags( $input ) );
     }
 
     public function index()
     {
         $model = new Reader();
-        $numbersArray = $model->getNumbersArray();
+        $this->numbersArray = $model->getNumbersArray();
 
-        $view = new View( $numbersArray );
+        $view = new View( $this->numbersArray );
         $view->index();
     }
 
@@ -30,12 +31,16 @@ class MainController
         $delimiter = validateInput( $_POST['delimiter'] );
         $operationsString = validateInput( $_POST['operations'] );
 
-        $model = new Counter( $delimiter, $operationsString );
+        var_dump('here');
+        die;
+
+        $model = new Counter( $delimiter, $operationsString, $this->numbersArray );
+        $model->count();
 
         if ( $model->statusValid ) {
             echo $model->result;
         } else {
-            echo $model->errors;
+            echo 'Введенные данные не корректны';
         }
         
     }
