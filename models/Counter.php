@@ -34,18 +34,12 @@ class Counter
             $this->operationsString
         );
 
-//        $numbersQuantityMatchesOperationsQuantity = count( $this->actionsArray ) ===
-//            count( $this->mockNumbersArray );
-
         $result = '';
 
         foreach ( $operationsArray as $index => $operation ) {
             $operationIsValid = $this->validateOperation( $operation );
             $currentPair = $this->numbersArray[$index];
             $numbersPresent = isset( $currentPair );
-//            var_dump($this->numbersArray);
-//            var_dump($index);
-//            die;
 
             if( $operationIsValid && $numbersPresent ) {
                 if( count( $currentPair ) === 2 ) {

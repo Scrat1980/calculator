@@ -75,7 +75,8 @@ App = {
         for( var index in operationsArray ) {
             var operation = operationsArray[index];
             var operationIsValid = $.inArray( operation, ['+', '-', '*', '/'] ) !== -1;
-
+console.log(operation);
+console.log(operationIsValid);
             if( ! operationIsValid ) {
                 alert( 'По крайней мере одна из операций не валидна' );
                 isValid = false;
